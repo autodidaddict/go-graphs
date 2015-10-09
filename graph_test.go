@@ -18,6 +18,7 @@ var _ = Describe("Go Graphs", func() {
           Ω(err).Should(BeNil())
           Ω(v.Key).Should(Equal("bob"))
           Ω(len(g.Vertices)).Should(Equal(1))
+          Ω(len(g.Edges)).Should(Equal(0))
         })
 
         It("Should properly add an edge between two vertices", func() {

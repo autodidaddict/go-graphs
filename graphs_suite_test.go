@@ -7,7 +7,7 @@ import (
 	"testing"
 )
 
-func TestCfenv(t *testing.T) {
+func TestGraphs(t *testing.T) {
 	RegisterFailHandler(Fail)
 	RunSpecs(t, "Go Graphs Test Suite")
 }
