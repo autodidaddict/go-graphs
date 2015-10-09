@@ -1,7 +1,10 @@
 package graphs
 
+// Edge represents a directed edge from an origin vertex to
+// a destination vertex, with an accompanying label and weight.
 type Edge struct {
-      Neighbor          *Vertex
-      Weight            int
-      Label             string
+      From        *Vertex
+      To          *Vertex
+      Weight      int
+      Label       string
 }
