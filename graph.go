@@ -33,15 +33,15 @@ func (g *Graph) AddVertex(key string) (*Vertex, error) {
 
 // AddEdge adds a directed edge between a source and a target vertex of
 // a given weight. Weight is used in assisting pathfinding algorithms.
-func (g *Graph) AddEdge(from string, to string, weight int) error {
+func (g *Graph) AddEdge(from string, to string, weight int) (*Edge, error) {
 	var ok bool
 	fromVertex, ok := g.Vertices[from]
 	if !ok {
-		return fmt.Errorf("Vertex \"%v\" does not exist", from)
+		return nil, fmt.Errorf("Vertex \"%v\" does not exist", from)
 	}
 	toVertex, ok := g.Vertices[to]
 	if !ok {
-		return fmt.Errorf("Vertex \"%v\" does not exist", from)
+		return nil, fmt.Errorf("Vertex \"%v\" does not exist", from)
 	}
 
 	edge := Edge{
@@ -53,5 +53,5 @@ func (g *Graph) AddEdge(from string, to string, weight int) error {
 	g.Edges = append(g.Edges, &edge)
 	fromVertex.Neighbors= append(fromVertex.Neighbors, &edge)
 
-	return nil
+	return &edge, nil
 }
